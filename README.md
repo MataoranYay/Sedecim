@@ -44,11 +44,11 @@ The CPU follows an **x86-inspired** design: a 16-bit data path, a register file 
                  +---<                            CONTROL UNIT                           <----+
                      |                                                                   |    |
                      +-----^-+-------------------+-----------------+--------------^-+----+    |
-    		IR,DST,SRC,DISP| |CS,WE,SC           |CS,WE            |CS,WE,CT   PSW| |OP,AO,PO     | 
-    		         +-----+-v-----+     +-------v-------+    +----v----+    +----+-v----+        |
-    		         |  Reg. File  |-MAR->    Main RAM   |    | Program |    |    ALU    |        |
-    		         |  (26 words) |-MDR-> 64 Ki x 16-bit|    | Counter |    |  (16 ops) |        |
-    		         +-----+-v-----+     +------+-v------+    +---+-v---+    +----+-v----+        |
+            IR,DST,SRC,DISP| |CS,WE,SC           |CS,WE            |CS,WE,CT   PSW| |OP,AO,PO |
+                     +-----+-v-----+     +-------v-------+    +----v----+    +----+-v----+    |
+                     |  Reg. File  |-MAR->    Main RAM   |    | Program |    |    ALU    |    |
+                     |  (26 words) |-MDR-> 64 Ki x 16-bit|    | Counter |    |  (16 ops) |    |
+                     +-----+-v-----+     +------+-v------+    +---+-v---+    +----+-v----+    |
    +------------+          | |                  | |               | |             | |         |
    |   PULSE    |CP/R      | +------------------|-+---------------|-+-------------|-+---BUS   |
    | CONTROLLER >----------+--------------------+-----------------+---------------+-----------+
