@@ -23,7 +23,8 @@ The CPU follows an **x86-inspired** design: a 16-bit data path, a register file 
 
 ## Demonstration
 The following demonstrates the process of executing a multiplication function call using its own ISA instruction set:
-<video src="https://github.com/user-attachments/assets/4a86cf8b-ae91-47c2-b964-e9d5582b77e7" controls width="100%"></video>
+
+https://github.com/user-attachments/assets/4a86cf8b-ae91-47c2-b964-e9d5582b77e7
 
 ---
 
