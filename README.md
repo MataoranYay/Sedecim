@@ -2,6 +2,8 @@
 
 > *Sedecim* is a **16-bit microcoded CPU** designed and built from the gate level up in **Logisim-Evolution**, together with a small Python toolchain that defines its instruction set and compiles programs to machine code.
 
+![](./img/main.png)
+
 The CPU follows an **x86-inspired** design: a 16-bit data path, a register file with `AX/BX/CX/DX`, a four-segment memory model (`CS/DS/SS/ES`) and a stack pointer (`SP/BP`), driven by a microcode ROM. Every instruction is implemented as a sequence of 32-bit **microinstructions** that orchestrate the bus, the ALU, the register file and the memory — making the whole design transparent, educational and easy to extend.
 
 ---
@@ -18,6 +20,13 @@ The CPU follows an **x86-inspired** design: a 16-bit data path, a register file 
 - **Python toolchain** (standard library only): an ISA/microcode definition and a compiler that both *generates the microcode image* and *assembles programs*.
 
 ---
+
+## Demonstration
+The following demonstrates the process of executing a multiplication function call using its own ISA instruction set:
+<video src="https://github.com/user-attachments/assets/4a86cf8b-ae91-47c2-b964-e9d5582b77e7" controls width="100%"></video>
+
+---
+
 ## Project layout
 
 ```
