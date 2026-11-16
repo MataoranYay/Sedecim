@@ -197,12 +197,15 @@ The assembler supports **labels** (`name:`), **comments** (`;`), decimal and hex
 from ISA import PIN, OP_TYPE, ADDR_MODE
 
 c = [
-    OP_TYPE["MOV"] | ADDR_MODE["REG"] << 3 | ADDR_MODE["IMM"], PIN["DS"], 0x4000, # mov DS 0x4000
-    OP_TYPE["MOV"] | ADDR_MODE["DIR"] << 3 | ADDR_MODE["IMM"], 2, 0,              # mov [2] 0
-    OP_TYPE["ADD"] | ADDR_MODE["DIR"] << 3 | ADDR_MODE["REG"], 2, PIN["T3"],      # add [2] T3
-    OP_TYPE["JZ"]  | ADDR_MODE["IMM"], 29,                                        # jz L0
-    OP_TYPE["DEC"] | ADDR_MODE["REG"], PIN["T1"],                                 # dec T1
-    OP_TYPE["HLT"],                                                               # hlt
+    OP_TYPE["MOV"] | ADDR_MODE["REG"] << 3 | ADDR_MODE["IMM"], PIN["DS"], 0x4000,    # mov DS 0x4000
+    OP_TYPE["MOV"] | ADDR_MODE["REG"] << 3 | ADDR_MODE["DIR"], PIN["AX"], 0,         # mov AX [0]
+    OP_TYPE["MOV"] | ADDR_MODE["REG"] << 3 | ADDR_MODE["DIR"], PIN["BX"], 1,         # mov BX [1]
+    # L0 = 9
+    OP_TYPE["ADD"] | ADDR_MODE["REG"] << 3 | ADDR_MODE["REG"], PIN["CX"], PIN["AX"], # add CX AX
+    OP_TYPE["DEC"] | ADDR_MODE["REG"], PIN["BX"],                                    # dec BX
+    OP_TYPE["JNZ"] | ADDR_MODE["IMM"], 9,                                            # jnz L0
+    OP_TYPE["MOV"] | ADDR_MODE["DIR"] << 3 | ADDR_MODE["REG"], 2, PIN["CX"],         # mov [2] CX
+    OP_TYPE["HLT"],                                                                  # hlt
 ]
 
 print(" ".join([hex(i)[2:] for i in c]))
